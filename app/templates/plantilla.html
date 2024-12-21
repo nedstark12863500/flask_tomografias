@@ -1,0 +1,134 @@
+<!doctype html>
+<html class="no-js" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Clinica del Sur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block cabecera %}{% endblock %}
+    
+
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    
+    <div class="page-container">
+        
+        <div class="sidebar-menu">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <a href="/inicio"><img src="{{ url_for('static', filename='assets/images/logo.png') }}" alt="logo"></a>
+                </div>
+            </div>
+            <div class="main-menu">
+                <div class="menu-inner">
+                    <nav>
+                        <ul class="metismenu" id="menu">
+                            <li id="nav_inicio">
+                                <a href="/inicio" aria-expanded="true"><i class="ti-dashboard"></i><span>Inicio</span></a>
+        
+                            </li>
+                            {% if identidad['id_rol']==1 %}
+                                <li id="nav_gestion_usuarios">
+                                    <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-group"></i><span>Gestion de Usuarios
+                                            
+                                        </span></a>
+                                    <ul class="collapse">
+                                        <li id="nav_usuarios"><a href="/usuarios">Usuarios</a></li>
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            
+                            <li id="nav_gestion_pacientes">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-wheelchair"></i><span>Gestion de Pacientes</span></a>
+                                <ul class="collapse">
+                                    <li id="nav_pacientes"><a href="/pacientes">Pacientes</a></li>
+                                    <!--li id="nav_signos_vitales"><a href="/control_signos_vitales">Hoja de Signos Vitales</a></li>
+                                    <li id="nav_consultas"><a href="/consultas">Consultas</a></li-->
+                                    
+                                </ul>
+                            </li>
+                            <li id="nav_gestion_consultas">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-agenda"></i><span>Evaluaciones</span></a>
+                                <ul class="collapse">
+                                    
+                                    <li id="nav_lista_tomografias"><a href="/estudios_listar">Estudios Médicos</a></li>
+                                    <li id="nav_resultados_tomografias"><a href="/estudios_resultados">Analizar Estudios medicos</a></li>
+                                    <!--li id="nav_indicaciones_doctor"><a href="/indicaciones_doctor">Indicaciones Doctor</a></li>
+                                    <li id="nav_indicaciones_enfermera"><a href="/indicaciones_enfermeras">Indicaciones Enfermeras</a></li>
+                                    <li id="nav_historial_clinico"><a href="/">Historial clinico</a></li-->
+                                </ul>
+                            </li>
+                            <li id="nav_reportes">
+                                <a href="/reportes" aria-expanded="true"><i class="ti-files"></i><span>Reportes</span></a>
+        
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+           
+            <div class="header-area">
+                <div class="row align-items-center">
+
+                    <div class="col-md-6 col-sm-8 clearfix">
+                        <div class="nav-btn pull-left">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                       
+                    </div>
+
+                    
+                </div>
+            </div>
+           
+            <div class="contenido">
+               
+                <div class="page-title-area">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            {% block titulo_contenido %}{% endblock%}
+                            
+                        </div>
+                        <div class="col-sm-6 clearfix">
+                            <div class="user-profile pull-right">
+                                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{identidad.nombres_usuario}} {{identidad.apellido_paterno}} <i class="fa fa-angle-down"></i></h4>
+                                <div class="dropdown-menu">
+
+                                    <a class="dropdown-item" href="/configuracion">Configuracion</a>
+                                    <a class="dropdown-item" href="/cerrar_sesion">Cerrar Sesion</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                {% block contenido %}{% endblock %}
+            </div>
+            
+        </div>
+        
+         <div>
+            
+            
+         </div>
+        
+    </div>
+    
+        
+
+</body>
+
+</html>
