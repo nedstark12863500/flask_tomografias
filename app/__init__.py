@@ -11,7 +11,7 @@ def create_app():
     app = Flask(__name__)
 
     # Configuración
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/db_tomografias'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://if0_37959597:aipw9DlImj@sql311.infinityfree.com/if0_37959597_db_tomografias'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = 'llave_secreta_aplicacion'
     app.config['JWT_TOKEN_LOCATION'] = ['cookies'] # posiblemente no se use
